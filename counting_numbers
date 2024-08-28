@@ -1,0 +1,13 @@
+public class Main {
+    public static void main(String[] args) {
+        int n =433543;
+        
+        int count = 0;
+        while(n>o){
+          int rem= n%10;
+          if(n==3){
+              count++;
+          }
+        }
+        n=n/10;
+}
