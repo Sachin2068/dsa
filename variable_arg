@@ -1,0 +1,10 @@
+import java.util.Arrays;
+ public class Main {
+    public static void main(String[] args) {
+        fun(4,6,89,5,67);
+        }
+      
+    static String fun(int ...v){
+            System.out.println(Arrays.toString(v));
+    }
+}
