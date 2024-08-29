@@ -1,0 +1,19 @@
+import java.util.Arrays;
+ public class Main {
+    public static void main(String[] args) {
+        int[] nums = {1,5,34,35,5};
+        reverse(nums);
+        System.out.println(Arrays.toString(nums));
+         }
+          static void reverse(int[] nums){
+              int start = 0;
+              int end = nums.length-1;
+              while(start < end){
+                  swap(nums,start,end);
+                  start++;
+                  end--;
+                 }  
+              
+            }
+           
+    }
