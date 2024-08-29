@@ -1,0 +1,13 @@
+class Solution {
+    public int[] buildArray(int[] nums) {
+        //Array Initialization
+        int arr[]=new int[nums.length] ;
+        //Loop Through Input Array:
+          for(int i=0;i<nums.length;i++)
+          {
+            int a=nums[i];
+            arr[i]=nums[a];
+          }
+          return arr;
+    }
+}
