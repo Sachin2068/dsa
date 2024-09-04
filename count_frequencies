@@ -1,0 +1,60 @@
+import java.util.Scanner;
+
+public class ArrayFrequency {
+
+    // Method to take array input from the user
+    static int[] takeInput(Scanner scanner) {
+        System.out.print("Enter the size of the array: ");
+        int size = scanner.nextInt();  // Reading the size of the array
+
+        int[] array = new int[size];  // Declaring the array
+
+        System.out.println("Enter " + size + " elements:");
+        for (int i = 0; i < size; i++) {
+            array[i] = scanner.nextInt();  // Filling the array with user input
+        }
+        return array;
+    }
+
+    // Method to count the frequency of each element in the array
+    static void countFrequencies(int[] array) {
+        int size = array.length;
+
+        // Loop through each element in the array
+        for (int i = 0; i < size; i++) {
+            // Check if the current element is already counted
+            boolean isCounted = false;
+            for (int j = 0; j < i; j++) {
+                if (array[i] == array[j]) {
+                    isCounted = true;
+                    break;
+                }
+            }
+
+            // If not counted, count its frequency
+            if (!isCounted) {
+                int count = 1;
+                for (int k = i + 1; k < size; k++) {
+                    if (array[k] == array[i]) {
+                        count++;
+                    }
+                }
+                System.out.println("Element " + array[i] + " occurs " + count + " times.");
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        // Create a Scanner object to read input
+        Scanner scanner = new Scanner(System.in);
+
+        // Take array input from the user
+        int[] array = takeInput(scanner);
+
+        // Count the frequency of each element in the array
+        countFrequencies(array);
+
+        // Close the scanner to prevent resource leak
+        scanner.close();
+    }
+}
