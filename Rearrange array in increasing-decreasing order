@@ -1,0 +1,40 @@
+import java.util.*;
+
+public class main{
+    static void rearrange(int[] arr){
+        int[] arr = arr.length;
+        Arrays.sort(arr);
+        int s = n/2;
+        int e = n-1;
+        while(s < e){
+            int temp = arr[s];
+            arr[s] = arr[e];
+            arr[e] = temp;
+            s++;
+            e--;
+        }
+    }
+    static void printArray(int[] arr){
+        for(int i = 0; i<arr.length;i++){
+            System.out.println(arr[i] + " ");
+        }
+        System.out.println();
+    }
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int size = sc.nextInt();
+        int[] arr = new int[size];
+        System.out.println("enter" + size + "of elements: ");
+        for(int i = 0; i<size; i++){
+        arr[i]=sc.nextInt();
+        }
+        rearrange(int[] arr);
+        
+        System.out.println("print the array: ");
+        
+        printArray(arr);
+        
+        sc.close();
+        
+    }
+}
