@@ -1,0 +1,29 @@
+public class FindRepeatingElements {
+
+    public static void main(String[] args) {
+        int[] arr = {4, 5, 6, 7, 5, 4, 8, 7};  // Declare and initialize the array.
+        findRepeatingElements(arr);  // Call the method to find and print repeating elements.
+    }
+
+    public static void findRepeatingElements(int[] arr) {
+        System.out.println("Repeating elements are: ");
+        
+        // Loop through the array
+        for(int i = 0; i< arr.length;i++){
+          boolean isRepeated = false;
+          break;
+          
+        for(int j= 0;j<arr.length;j++){
+          if(i != j && arr[i]==arr[j]){
+            isRepeated = true;
+            break;
+          }
+          
+        }
+        if(!isRepeated){
+            System.out.println(arr[i]);
+            
+              }
+          }
+    }
+}
