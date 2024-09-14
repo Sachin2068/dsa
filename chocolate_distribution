@@ -1,0 +1,41 @@
+import java.util.Arrays;
+
+public class ChocolateDistribution {
+
+    public static void main(String[] args) {
+        int[] studentNumbers = {4, 3, 2, 1, 2, 3};  // Initialize the student numbers array.
+        
+        int totalChocolates = calculateTotalChocolates(studentNumbers);  // Call the method to calculate total chocolates.
+
+        System.out.println("Total chocolates distributed: " + totalChocolates);  // Output the result.
+    }
+
+    public static int calculateTotalChocolates(int[] studentNumbers) {
+        int n = studentNumbers.length;  // Get the number of students.
+        
+        int[] chocolates = new int[n];  // Create an array to store the chocolates given to each student.
+        Arrays.fill(chocolates, 1);  // Initially, give 1 chocolate to each student.
+
+        // Left to right pass: If a student has a larger number than the previous one, give more chocolates.
+        for (int i = 1; i < n; i++) {
+            if (studentNumbers[i] > studentNumbers[i - 1]) {
+                chocolates[i] = chocolates[i - 1] + 1;
+            }
+        }
+
+        // Right to left pass: If a student has a larger number than the next one, and fewer chocolates, adjust the chocolates.
+        for (int i = n - 2; i >= 0; i--) {
+            if (studentNumbers[i] > studentNumbers[i + 1]) {
+                chocolates[i] = Math.max(chocolates[i], chocolates[i + 1] + 1);
+            }
+        }
+
+        // Sum up the total chocolates distributed.
+        int totalChocolates = 0;
+        for (int chocolate : chocolates) {
+            totalChocolates += chocolate;
+        }
+
+        return totalChocolates;  // Return the total number of chocolates distributed.
+    }
+}
